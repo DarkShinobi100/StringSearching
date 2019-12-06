@@ -1,5 +1,6 @@
 // String searching lab exercise.
-// Adam Sampson <a.sampson@abertay.ac.uk>
+// Edwyn Mckie
+//failed at A* and ran away
 
 #include <cassert>
 #include <iostream>
