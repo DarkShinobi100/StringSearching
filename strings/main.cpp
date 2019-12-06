@@ -1,7 +1,7 @@
 // String searching lab exercise.
 // Edwyn Mckie
-//failed at A* and ran away
 
+#include <chrono>
 #include <cassert>
 #include <iostream>
 #include <list>
@@ -11,9 +11,14 @@
 
 using std::cout;
 using std::endl;
-using std::list;
 using std::string;
 using std::vector;
+using std::chrono::duration_cast;
+using std::chrono::milliseconds;
+using std::chrono::steady_clock;
+
+//define the alias for the clock type we're going to use
+typedef std::chrono::steady_clock the_clock;
 
 #define d 256 //number of characters in the english alphabet
 
@@ -211,11 +216,11 @@ void Rabin_Karp(const string& pat, const string& text, int PrimeNumber)
 
 int main(int argc, char *argv[]) {
 	string text;//declare text as a string
-
+	float time_taken;
 	//load_jute_book(text); //call the load function and pass it the file .txt
 	load_file("Plot.txt", text);
 
-	string pat = "Voldemort"; //pat = pattern
+	string pat = "fight"; //pat = pattern
 
 
 	//Position pos = find_bruteforce(pat, text);
@@ -224,14 +229,31 @@ int main(int argc, char *argv[]) {
 	//cout << "Searching for:" << pat << endl;
 	cout << "String size" << text.size() << endl;
 	cout << "Boyer Moore" << endl;
+
+	//time how long it takes to Search via Boyer Moore
+	the_clock::time_point start = the_clock::now();
 	find_bm_multiple(pat, text);
+	the_clock::time_point end = the_clock::now();
+	time_taken = duration_cast<milliseconds>(end - start).count();
 	cout << endl << endl;
 
+	//print the time taken
+	cout << "time taken to Search " << time_taken << "ms for " <<pat<< endl;
+	system("pause");
+
 	cout << "Rabin Karp" << endl;
+	// time how long it takes to Search via Rabin karp
+	start = the_clock::now();
 	Rabin_Karp(pat, text,2);
+	end = the_clock::now();
+	time_taken = duration_cast<milliseconds>(end - start).count();
+	//print the time taken
+	cout << "time taken to Search " << time_taken << "ms for " << pat << endl;
+
 	cout << endl << endl;
 	//cout << "Found '" << pat << "' at position " << pos << ":\n";
 	//show_context(text, pos);
+	system("pause");
 
 	return 0;
 }
