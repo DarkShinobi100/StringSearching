@@ -229,7 +229,7 @@ int main(int argc, char *argv[]) {
 	//load_jute_book(text); //call the load function and pass it the file .txt
 	load_file("Plot.txt", text);
 
-	string pat = "star"; //pat = pattern
+	string pat = "Kurumi"; //pat = pattern
 
 
 	//Position pos = find_bruteforce(pat, text);
