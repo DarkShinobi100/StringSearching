@@ -225,45 +225,53 @@ void Rabin_Karp(const string& pat, const string& text, int PrimeNumber)
 
 int main(int argc, char *argv[]) {
 	string text;//declare text as a string
-	float time_taken;
+	float time_taken[2];
 	//load_jute_book(text); //call the load function and pass it the file .txt
 	load_file("Plot.txt", text);
 
-	string pat = "Kurumi"; //pat = pattern
+	string pat[5]; //pat = pattern
+	pat[0] ="Kurumi";
+	pat[1] = "Tohka";
+	pat[2] = "Origami";
+	pat[3] = "Yoshino";
+	pat[4] = "Shido";
 
-
-	//Position pos = find_bruteforce(pat, text);
+	//set up headers
+	my_file << "Character limit " << "," << "Boyer Moore" << "," << "Rabin Karp" << endl;
+	for (int i = 0; i < 5; i++)
+	{
+		//Position pos = find_bruteforce(pat, text);
 	//Position pos = find_skipping(pat, text);
 	//Position pos = find_bm(pat, text);
 	//cout << "Searching for:" << pat << endl;
-	cout << "String size" << text.size() << endl;
-	cout << "Boyer Moore" << endl;
+		cout << "String size" << text.size() << endl;
+		cout << "Boyer Moore" << endl;
 
-	//time how long it takes to Search via Boyer Moore
-	the_clock::time_point start = the_clock::now();
-	find_bm_multiple(pat, text);
-	the_clock::time_point end = the_clock::now();
-	time_taken = duration_cast<milliseconds>(end - start).count();
-	cout << endl << endl;
-	my_file << "Boyer Moore" << "," << text.size() << "," << time_taken << endl;
+		//time how long it takes to Search via Boyer Moore
+		the_clock::time_point start = the_clock::now();
+		find_bm_multiple(pat[i], text);
+		the_clock::time_point end = the_clock::now();
+		time_taken[0] = duration_cast<milliseconds>(end - start).count();
 
-	//print the time taken
-	cout << "time taken to Search " << time_taken << "ms for " <<pat<< endl;
-	system("pause");
+		//print the time taken
+		cout << "time taken to Search " << time_taken << "ms for " << pat << endl;
+		//system("pause");
 
-	cout << "Rabin Karp" << endl;
-	// time how long it takes to Search via Rabin karp
-	start = the_clock::now();
-	Rabin_Karp(pat, text,2);
-	end = the_clock::now();
-	time_taken = duration_cast<milliseconds>(end - start).count();
-	//print the time taken
-	cout << "time taken to Search " << time_taken << "ms for " << pat << endl;
-	my_file << "Rabin Karp" << "," << text.size() << "," << time_taken << endl;
+		cout << "Rabin Karp" << endl;
+		// time how long it takes to Search via Rabin karp
+		start = the_clock::now();
+		Rabin_Karp(pat[i], text, 2);
+		end = the_clock::now();
+		time_taken[1] = duration_cast<milliseconds>(end - start).count();
+		//print the time taken
+		cout << "time taken to Search " << time_taken[1] << "ms for " << pat << endl;
+		my_file << text.size() << "," << time_taken[0] << "," << time_taken[1] << endl;
 
-	cout << endl << endl;	
-	//show_context(text, pos);
-	system("pause");
+		cout << endl << endl;
+		//show_context(text, pos);
+		//system("pause");
 
+	}
+	
 	return 0;
 }
