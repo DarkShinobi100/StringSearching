@@ -1,6 +1,8 @@
 ﻿  main.cpp
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(87,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(91,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(127,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(131,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(89,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(93,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(129,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(133,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(163,32): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(164,30): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
   strings.vcxproj -> \\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\x64\Debug\strings.exe

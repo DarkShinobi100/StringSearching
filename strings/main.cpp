@@ -15,6 +15,8 @@ using std::list;
 using std::string;
 using std::vector;
 
+#define d 256 //number of characters in the english alphabet
+
 /** Return first position of pat in text, or -1 if not found. */
 Position find_bruteforce(const string& pat, const string& text) {
 	Position pat_len = pat.size();
@@ -156,6 +158,55 @@ void find_bm_multiple(const string& pat, const string& text) {
 	}
 }
 
+void Rabin_Karp(const string& pat, const string& text, int PrimeNumber) 
+{
+	int PatternLength = pat.size();
+	int TextLength = text.size();
+
+	int j; //counter
+	int p = 0; //pattern hash
+	int t = 0; //text hash
+	int h = 1; // hash
+	
+	for (int i = 0; i < PatternLength - 1; i++)
+	
+	{
+		h = (h * d) % PrimeNumber;
+	}
+
+	for (int i = 0; i < PatternLength; i++)
+	{
+		p = (d * p + pat[i]) % PrimeNumber;
+		t = (d * t + pat[i]) % PrimeNumber;
+	}
+
+	for (int i = 0; i <= TextLength - PatternLength; i++)
+	{
+		if (p == t)
+		{
+			for (j = 0; j < PatternLength; j++)
+			{
+				if (text[i + j] != pat[j])
+				{
+					break;
+				}
+			}
+			if (j == PatternLength)
+			{
+				cout << "Pattern found at index: " << i << endl;
+			}
+		}
+		if (i < TextLength - PatternLength)
+		{
+			t = (d * (t - text[i] * h) + text[i + PatternLength]) % PrimeNumber;
+			if (t < 0)
+			{
+				t = t + PrimeNumber;
+			}
+		}
+	}
+}
+
 int main(int argc, char *argv[]) {
 	string text;//declare text as a string
 	text = "University of Abertay Dundee, Bell Street, Dundee, Scotland";
@@ -164,10 +215,13 @@ int main(int argc, char *argv[]) {
 	//load_file("my-file.txt", text);
 
 	string pat = "Dundee"; //pat = pattern
+
+
 	//Position pos = find_bruteforce(pat, text);
 	//Position pos = find_skipping(pat, text);
 	//Position pos = find_bm(pat, text);
-	find_bm_multiple(pat, text);
+	//find_bm_multiple(pat, text);
+	Rabin_Karp(pat, text,2);
 	//cout << "Found '" << pat << "' at position " << pos << ":\n";
 	//show_context(text, pos);
 
