@@ -1,4 +1,6 @@
 ﻿  main.cpp
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(86,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(90,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(87,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(91,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(127,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(131,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
   strings.vcxproj -> \\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\x64\Debug\strings.exe
