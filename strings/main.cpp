@@ -118,7 +118,8 @@ Position find_bm(const string& pat, const string& text) {
 }
 
 /** skip ahead by the length of the string if we do not match. */
-void find_bm_multiple(const string& pat, const string& text) {
+void find_bm_multiple(const string& pat, const string& text) 
+{
 	Position pat_len = pat.size();
 	Position text_len = text.size();
 	vector<Position> Results;
@@ -134,8 +135,9 @@ void find_bm_multiple(const string& pat, const string& text) {
 	}
 
 
-	for (Position i = 0; i < text_len - pat_len; ++i) {
-		int s = skip[int(text[i + pat_len - 1])];
+	for (Position i = 0; i < text_len - pat_len; ++i)
+	{
+		int s = skip[int(text[i + pat_len - 1] ) ];
 		if (s != 0)
 		{
 			i += s - 1; // Skip forwards.
@@ -164,25 +166,25 @@ void Rabin_Karp(const string& pat, const string& text, int PrimeNumber)
 	int TextLength = text.size();
 
 	int j; //counter
-	int p = 0; //pattern hash
-	int t = 0; //text hash
-	int h = 1; // hash
+	int PatternHash = 0;
+	int TextHash = 0;
+	int Hash = 1;
 	
 	for (int i = 0; i < PatternLength - 1; i++)
 	
 	{
-		h = (h * d) % PrimeNumber;
+		Hash = (Hash * d) % PrimeNumber;
 	}
 
 	for (int i = 0; i < PatternLength; i++)
 	{
-		p = (d * p + pat[i]) % PrimeNumber;
-		t = (d * t + pat[i]) % PrimeNumber;
+		PatternHash = (d * PatternHash + pat[i]) % PrimeNumber;
+		TextHash = (d * TextHash + pat[i]) % PrimeNumber;
 	}
 
 	for (int i = 0; i <= TextLength - PatternLength; i++)
 	{
-		if (p == t)
+		if (PatternHash == TextHash)
 		{
 			for (j = 0; j < PatternLength; j++)
 			{
@@ -198,10 +200,10 @@ void Rabin_Karp(const string& pat, const string& text, int PrimeNumber)
 		}
 		if (i < TextLength - PatternLength)
 		{
-			t = (d * (t - text[i] * h) + text[i + PatternLength]) % PrimeNumber;
-			if (t < 0)
+			TextHash = (d * (TextHash - text[i] * Hash) + text[i + PatternLength]) % PrimeNumber;
+			if (TextHash < 0)
 			{
-				t = t + PrimeNumber;
+				TextHash = TextHash + PrimeNumber;
 			}
 		}
 	}
@@ -209,19 +211,25 @@ void Rabin_Karp(const string& pat, const string& text, int PrimeNumber)
 
 int main(int argc, char *argv[]) {
 	string text;//declare text as a string
-	text = "University of Abertay Dundee, Bell Street, Dundee, Scotland";
 
-	load_jute_book(text); //call the load function and pass it the file .txt
-	//load_file("my-file.txt", text);
+	//load_jute_book(text); //call the load function and pass it the file .txt
+	load_file("Plot.txt", text);
 
-	string pat = "Dundee"; //pat = pattern
+	string pat = "Voldemort"; //pat = pattern
 
 
 	//Position pos = find_bruteforce(pat, text);
 	//Position pos = find_skipping(pat, text);
 	//Position pos = find_bm(pat, text);
-	//find_bm_multiple(pat, text);
+	//cout << "Searching for:" << pat << endl;
+	cout << "String size" << text.size() << endl;
+	cout << "Boyer Moore" << endl;
+	find_bm_multiple(pat, text);
+	cout << endl << endl;
+
+	cout << "Rabin Karp" << endl;
 	Rabin_Karp(pat, text,2);
+	cout << endl << endl;
 	//cout << "Found '" << pat << "' at position " << pos << ":\n";
 	//show_context(text, pos);
 
