@@ -7,6 +7,7 @@
 #include <list>
 #include <string>
 #include <vector>
+#include <fstream> // needed for file
 #include "utils.h"
 
 using std::cout;
@@ -16,9 +17,13 @@ using std::vector;
 using std::chrono::duration_cast;
 using std::chrono::milliseconds;
 using std::chrono::steady_clock;
+using std::ofstream;
 
 //define the alias for the clock type we're going to use
 typedef std::chrono::steady_clock the_clock;
+
+//my file to save values to
+ofstream my_file("Timings.csv");
 
 #define d 256 //number of characters in the english alphabet
 
@@ -142,12 +147,16 @@ void find_bm_multiple(const string& pat, const string& text)
 
 	for (Position i = 0; i < text_len - pat_len; ++i)
 	{
-		int s = skip[int(text[i + pat_len - 1] ) ];
-		if (s != 0)
+		if ((text.size() - i) < pat_len) 
 		{
-			i += s - 1; // Skip forwards.
-			continue;
+			int s = skip[int(text[i + pat_len - 1])];
+			if (s != 0)
+			{
+				i += s - 1; // Skip forwards.
+				continue;
+			}
 		}
+		
 		Position j;
 		//show position we're currently at
 		//feed it the text we want,and the current position
@@ -220,7 +229,7 @@ int main(int argc, char *argv[]) {
 	//load_jute_book(text); //call the load function and pass it the file .txt
 	load_file("Plot.txt", text);
 
-	string pat = "fight"; //pat = pattern
+	string pat = "star"; //pat = pattern
 
 
 	//Position pos = find_bruteforce(pat, text);
@@ -236,6 +245,7 @@ int main(int argc, char *argv[]) {
 	the_clock::time_point end = the_clock::now();
 	time_taken = duration_cast<milliseconds>(end - start).count();
 	cout << endl << endl;
+	my_file << "Boyer Moore" << "," << text.size() << "," << time_taken << endl;
 
 	//print the time taken
 	cout << "time taken to Search " << time_taken << "ms for " <<pat<< endl;
@@ -249,9 +259,9 @@ int main(int argc, char *argv[]) {
 	time_taken = duration_cast<milliseconds>(end - start).count();
 	//print the time taken
 	cout << "time taken to Search " << time_taken << "ms for " << pat << endl;
+	my_file << "Rabin Karp" << "," << text.size() << "," << time_taken << endl;
 
-	cout << endl << endl;
-	//cout << "Found '" << pat << "' at position " << pos << ":\n";
+	cout << endl << endl;	
 	//show_context(text, pos);
 	system("pause");
 

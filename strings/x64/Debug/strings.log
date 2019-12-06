@@ -1,18 +1,19 @@
 ﻿  main.cpp
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(95,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(99,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(136,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(140,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(171,32): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(172,30): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(238,61): warning C4244:  '=': conversion from '_Rep' to 'float', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(238,61): warning C4244:         with
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(238,61): warning C4244:         [
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(238,61): warning C4244:             _Rep=__int64
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(238,61): warning C4244:         ]
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(250,61): warning C4244:  '=': conversion from '_Rep' to 'float', possible loss of data
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(250,61): warning C4244:         with
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(250,61): warning C4244:         [
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(250,61): warning C4244:             _Rep=__int64
-\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(250,61): warning C4244:         ]
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(99,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(103,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(140,13): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(144,37): warning C4244:  '=': conversion from 'Position' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(150,25): warning C4018:  '<': signed/unsigned mismatch
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(179,32): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(180,30): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(246,61): warning C4244:  '=': conversion from '_Rep' to 'float', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(246,61): warning C4244:         with
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(246,61): warning C4244:         [
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(246,61): warning C4244:             _Rep=__int64
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(246,61): warning C4244:         ]
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(259,61): warning C4244:  '=': conversion from '_Rep' to 'float', possible loss of data
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(259,61): warning C4244:         with
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(259,61): warning C4244:         [
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(259,61): warning C4244:             _Rep=__int64
+\\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\strings\main.cpp(259,61): warning C4244:         ]
   strings.vcxproj -> \\StuHomeEven\HomeDrive8$\1901418\GitHub\StringSearching\x64\Debug\strings.exe
