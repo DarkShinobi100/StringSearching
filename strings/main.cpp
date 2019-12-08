@@ -168,11 +168,11 @@ void find_bm_multiple(const string& pat, const string& text)
 			 // Matched here add to the vector
 			Results.push_back(i);
 			//print results to the screen
-			cout << "Match found: " << Results[Results.size() - 1] << endl;
+			//cout << "Match found: " << Results[Results.size() - 1] << endl;
 			NumberofMatches++;
 		}
 	}
-	cout << "Number of matches " << NumberofMatches << endl;
+	cout << pat << " was found: " << NumberofMatches << " times" << endl;
 }
 
 void Rabin_Karp(const string& pat, const string& text) 
@@ -210,7 +210,7 @@ void Rabin_Karp(const string& pat, const string& text)
 			}
 			if (j == PatternLength)
 			{
-				cout << "Pattern found at index: " << i << endl;
+				//cout << "Pattern found at index: " << i << endl;
 				NumberofMatches++;
 			}
 		}
@@ -223,7 +223,7 @@ void Rabin_Karp(const string& pat, const string& text)
 			}
 		}
 	}
-	cout << "Number of matches " << NumberofMatches << endl;
+	cout << pat << " was found: " << NumberofMatches << " times" << endl;
 }
 
 int main(int argc, char *argv[]) {
@@ -231,7 +231,7 @@ int main(int argc, char *argv[]) {
 	float time_taken[2];
 	string FileName = "";
 
-	string pat[100]; //pat = pattern
+	string pat[10]; //pat = pattern
 	pat[0] ="244";
 	pat[1] = "Tohka";
 	pat[2] = "Origami";
@@ -242,96 +242,7 @@ int main(int argc, char *argv[]) {
 	pat[7] = "Angel";
 	pat[8] = "Battle";
 	pat[9] = "blade";
-	pat[10] = "244";
-	pat[11] = "Tohka";
-	pat[12] = "Origami";
-	pat[13] = "Yoshino";
-	pat[14] = "Shido";
-	pat[15] = "Spirit";
-	pat[16] = "DEM";
-	pat[17] = "Angel";
-	pat[18] = "Battle";
-	pat[19] = "blade";
-	pat[20] = "244";
-	pat[21] = "Tohka";
-	pat[22] = "Origami";
-	pat[23] = "Yoshino";
-	pat[24] = "Shido";
-	pat[25] = "Spirit";
-	pat[26] = "DEM";
-	pat[27] = "Angel";
-	pat[28] = "Battle";
-	pat[29] = "blade";
-	pat[30] = "244";
-	pat[31] = "Tohka";
-	pat[32] = "Origami";
-	pat[33] = "Yoshino";
-	pat[34] = "Shido";
-	pat[35] = "Spirit";
-	pat[36] = "DEM";
-	pat[37] = "Angel";
-	pat[38] = "Battle";
-	pat[39] = "blade";
-	pat[40] = "244";
-	pat[41] = "Tohka";
-	pat[42] = "Origami";
-	pat[43] = "Yoshino";
-	pat[44] = "Shido";
-	pat[45] = "Spirit";
-	pat[46] = "DEM";
-	pat[47] = "Angel";
-	pat[48] = "Battle";
-	pat[49] = "blade";
-	pat[50] = "244";
-	pat[51] = "Tohka";
-	pat[52] = "Origami";
-	pat[53] = "Yoshino";
-	pat[54] = "Shido";
-	pat[55] = "Spirit";
-	pat[56] = "DEM";
-	pat[57] = "Angel";
-	pat[58] = "Battle";
-	pat[59] = "blade";
-	pat[60] = "244";
-	pat[61] = "Tohka";
-	pat[62] = "Origami";
-	pat[63] = "Yoshino";
-	pat[64] = "Shido";
-	pat[65] = "Spirit";
-	pat[66] = "DEM";
-	pat[67] = "Angel";
-	pat[68] = "Battle";
-	pat[69] = "blade";
-	pat[70] = "244";
-	pat[71] = "Tohka";
-	pat[72] = "Origami";
-	pat[73] = "Yoshino";
-	pat[74] = "Shido";
-	pat[75] = "Spirit";
-	pat[76] = "DEM";
-	pat[77] = "Angel";
-	pat[78] = "Battle";
-	pat[79] = "blade";
-	pat[80] = "244";
-	pat[81] = "Tohka";
-	pat[82] = "Origami";
-	pat[83] = "Yoshino";
-	pat[84] = "Shido";
-	pat[85] = "Spirit";
-	pat[86] = "DEM";
-	pat[87] = "Angel";
-	pat[88] = "Battle";
-	pat[89] = "blade";
-	pat[90] = "244";
-	pat[91] = "Tohka";
-	pat[92] = "Origami";
-	pat[93] = "Yoshino";
-	pat[94] = "Shido";
-	pat[95] = "Spirit";
-	pat[96] = "DEM";
-	pat[97] = "Angel";
-	pat[98] = "Battle";
-	pat[99] = "blade";
+	
 	//set up headers
 	my_file << "Character limit " << "," << "Boyer Moore Time taken"  << "," << "Rabin Karp Time taken" << endl;
 	for (int i = 0; i < 17; i++)
@@ -339,7 +250,7 @@ int main(int argc, char *argv[]) {
 		FileName ="DateALiveVolume" + std::to_string(i + 1) + ".txt";
 
 		load_file(FileName, text);
-		for (int j = 0; j < 100; j++)
+		for (int j = 0; j <10; j++)
 		{
 			//Position pos = find_bruteforce(pat, text);
 			//Position pos = find_skipping(pat, text);
@@ -355,8 +266,8 @@ int main(int argc, char *argv[]) {
 			time_taken[0] = duration_cast<milliseconds>(end - start).count();
 
 			//print the time taken
-			cout << "time taken to Search " << time_taken << "ms for " << pat[j] <<  endl;
-			system("pause");
+			cout << "time taken to Search " << time_taken <<  endl;
+		//	system("pause");
 
 			cout << "Rabin Karp" << endl;
 			// time how long it takes to Search via Rabin karp
@@ -365,7 +276,7 @@ int main(int argc, char *argv[]) {
 			end = the_clock::now();
 			time_taken[1] = duration_cast<milliseconds>(end - start).count();
 			//print the time taken
-			cout << "time taken to Search " << time_taken[1] << "ms for " << pat[j] <<  endl;
+			cout << "time taken to Search " << time_taken[1] <<  endl;
 			my_file << text.size() << "," << time_taken[0] << "," << time_taken[1] << endl;
 
 			cout << endl << endl;
