@@ -179,11 +179,11 @@ void find_bm_multiple(const string& pat, const string& text)
 	cout << "Number of matches " << NumberofMatches << endl;
 }
 
-void Rabin_Karp(const string& pat, const string& text, int PrimeNumber) 
+void Rabin_Karp(const string& pat, const string& text) 
 {
 	int PatternLength = pat.size();
 	int TextLength = text.size();
-
+	int PrimeNumber = 2;
 	int j; //counter
 	int PatternHash = 0;
 	int TextHash = 0;
@@ -263,17 +263,17 @@ int main(int argc, char *argv[]) {
 		time_taken[0] = duration_cast<milliseconds>(end - start).count();
 
 		//print the time taken
-		cout << "time taken to Search " << time_taken << "ms for " << pat << "After: " << BoyerMooreCounter << "iterations"<< endl;
+		cout << "time taken to Search " << time_taken << "ms for " << pat[i] << " After: " << BoyerMooreCounter << "iterations"<< endl;
 		system("pause");
 
 		cout << "Rabin Karp" << endl;
 		// time how long it takes to Search via Rabin karp
 		start = the_clock::now();
-		Rabin_Karp(pat[i], text, 2);
+		Rabin_Karp(pat[i], text);
 		end = the_clock::now();
 		time_taken[1] = duration_cast<milliseconds>(end - start).count();
 		//print the time taken
-		cout << "time taken to Search " << time_taken[1] << "ms for " << pat << "After: " << RabinKarpCounter << "iterations" << endl;
+		cout << "time taken to Search " << time_taken[1] << "ms for " << pat[i] << " After: " << RabinKarpCounter << "iterations" << endl;
 		my_file << text.size() << "," << BoyerMooreCounter << "," << time_taken[0] << "," << RabinKarpCounter << "," << time_taken[1] << endl;
 
 		cout << endl << endl;
