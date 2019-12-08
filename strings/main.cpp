@@ -172,7 +172,7 @@ void find_bm_multiple(const string& pat, const string& text)
 			NumberofMatches++;
 		}
 	}
-	cout << pat << " was found: " << NumberofMatches << " times" << endl;
+	cout << pat << " was found: " << NumberofMatches << " time(s)" << endl;
 }
 
 void Rabin_Karp(const string& pat, const string& text) 
@@ -223,7 +223,7 @@ void Rabin_Karp(const string& pat, const string& text)
 			}
 		}
 	}
-	cout << pat << " was found: " << NumberofMatches << " times" << endl;
+	cout << pat << " was found: " << NumberofMatches << " time(s)" << endl;
 }
 
 int main(int argc, char *argv[]) {
@@ -248,15 +248,14 @@ int main(int argc, char *argv[]) {
 	for (int i = 0; i < 17; i++)
 	{	//load_jute_book(text); //call the load function and pass it the file .txt
 		FileName ="DateALiveVolume" + std::to_string(i + 1) + ".txt";
-
 		load_file(FileName, text);
+		cout << "String size: " << text.size() << endl;
 		for (int j = 0; j <10; j++)
 		{
 			//Position pos = find_bruteforce(pat, text);
 			//Position pos = find_skipping(pat, text);
 			//Position pos = find_bm(pat, text);
 			//cout << "Searching for:" << pat << endl;
-			cout << "String size" << text.size() << endl;
 			cout << "Boyer Moore" << endl;
 
 			//time how long it takes to Search via Boyer Moore
@@ -266,7 +265,7 @@ int main(int argc, char *argv[]) {
 			time_taken[0] = duration_cast<milliseconds>(end - start).count();
 
 			//print the time taken
-			cout << "time taken to Search " << time_taken <<  endl;
+			cout << "time taken to Search " << time_taken[0] << "ms"<< endl;
 		//	system("pause");
 
 			cout << "Rabin Karp" << endl;
@@ -276,20 +275,14 @@ int main(int argc, char *argv[]) {
 			end = the_clock::now();
 			time_taken[1] = duration_cast<milliseconds>(end - start).count();
 			//print the time taken
-			cout << "time taken to Search " << time_taken[1] <<  endl;
+			cout << "time taken to Search " << time_taken[1] << "ms" << endl<<endl;
 			my_file << text.size() << "," << time_taken[0] << "," << time_taken[1] << endl;
 
 			cout << endl << endl;
-			//show_context(text, pos);
-			system("pause");
+			//show_context(text, pos);			
 		}
+		system("pause");
 
-	}
-	for (int i = 0; i < 5; i++)
-	{
-		
-
-	}
-	
+	}	
 	return 0;
 }
