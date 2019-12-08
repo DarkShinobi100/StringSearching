@@ -1,6 +1,2 @@
-Character limit Boyer Moore,Rabin Karp
-355622,881,798
-355622,194,222
-355622,176,211
-355622,134,169
-355622,737,758
+Character limit ,number of iterations: ,Boyer Moore Time takennumber of iterations: ,Rabin Karp Time taken
+355622,0,227,0,332
