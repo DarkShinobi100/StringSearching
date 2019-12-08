@@ -3,9 +3,9 @@ c:\users\user\documents\c++\stringsearching\strings\main.cpp(100): warning C4244
 c:\users\user\documents\c++\stringsearching\strings\main.cpp(104): warning C4244: '=': conversion from 'Position' to 'int', possible loss of data
 c:\users\user\documents\c++\stringsearching\strings\main.cpp(142): warning C4244: '=': conversion from 'Position' to 'int', possible loss of data
 c:\users\user\documents\c++\stringsearching\strings\main.cpp(146): warning C4244: '=': conversion from 'Position' to 'int', possible loss of data
-c:\users\user\documents\c++\stringsearching\strings\main.cpp(154): warning C4018: '<': signed/unsigned mismatch
-c:\users\user\documents\c++\stringsearching\strings\main.cpp(186): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\user\documents\c++\stringsearching\strings\main.cpp(187): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\user\documents\c++\stringsearching\strings\main.cpp(152): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\documents\c++\stringsearching\strings\main.cpp(184): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\user\documents\c++\stringsearching\strings\main.cpp(185): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 c:\users\user\documents\c++\stringsearching\strings\main.cpp(266): warning C4244: '=': conversion from '__int64' to 'float', possible loss of data
 c:\users\user\documents\c++\stringsearching\strings\main.cpp(277): warning C4244: '=': conversion from '__int64' to 'float', possible loss of data
   strings.vcxproj -> C:\Users\User\Documents\C++\StringSearching\x64\Debug\strings.exe

@@ -158,7 +158,7 @@ void find_bm_multiple(const string& pat, const string& text)
 				continue;
 			}
 		}
-		
+		BoyerMooreCounter++;
 		Position j;
 		//show position we're currently at
 		//feed it the text we want,and the current position
@@ -184,7 +184,7 @@ void Rabin_Karp(const string& pat, const string& text)
 	int PatternLength = pat.size();
 	int TextLength = text.size();
 	int PrimeNumber = 2;
-	int j; //counter
+	int j = 0; //counter
 	int PatternHash = 0;
 	int TextHash = 0;
 	int Hash = 1;
@@ -204,6 +204,7 @@ void Rabin_Karp(const string& pat, const string& text)
 
 	for (int i = 0; i <= TextLength - PatternLength; i++)
 	{
+		RabinKarpCounter++;
 		if (PatternHash == TextHash)
 		{
 			for (j = 0; j < PatternLength; j++)
@@ -234,11 +235,10 @@ void Rabin_Karp(const string& pat, const string& text)
 int main(int argc, char *argv[]) {
 	string text;//declare text as a string
 	float time_taken[2];
-	//load_jute_book(text); //call the load function and pass it the file .txt
-	load_file("Plot.txt", text);
+	string FileName = "";
 
 	string pat[5]; //pat = pattern
-	pat[0] ="CONTACT";
+	pat[0] ="244";
 	pat[1] = "Tohka";
 	pat[2] = "Origami";
 	pat[3] = "Yoshino";
@@ -246,39 +246,48 @@ int main(int argc, char *argv[]) {
 
 	//set up headers
 	my_file << "Character limit " << "," << "number of iterations: " << ","<< "Boyer Moore Time taken" << "number of iterations: " << "," << "Rabin Karp Time taken" << endl;
-	
+	for (int i = 0; i < 5; i++)
+	{	//load_jute_book(text); //call the load function and pass it the file .txt
+		FileName = "DateALiveVolume" + i + std::string(".txt");
+		load_file(FileName, text);
+		for (int j = 0; j < 5; j++)
+		{
+			//Position pos = find_bruteforce(pat, text);
+			//Position pos = find_skipping(pat, text);
+			//Position pos = find_bm(pat, text);
+			//cout << "Searching for:" << pat << endl;
+			cout << "String size" << text.size() << endl;
+			cout << "Boyer Moore" << endl;
+
+			//time how long it takes to Search via Boyer Moore
+			the_clock::time_point start = the_clock::now();
+			find_bm_multiple(pat[j], text);
+			the_clock::time_point end = the_clock::now();
+			time_taken[0] = duration_cast<milliseconds>(end - start).count();
+
+			//print the time taken
+			cout << "time taken to Search " << time_taken << "ms for " << pat[j] << " After: " << BoyerMooreCounter << "iterations" << endl;
+			system("pause");
+
+			cout << "Rabin Karp" << endl;
+			// time how long it takes to Search via Rabin karp
+			start = the_clock::now();
+			Rabin_Karp(pat[j], text);
+			end = the_clock::now();
+			time_taken[1] = duration_cast<milliseconds>(end - start).count();
+			//print the time taken
+			cout << "time taken to Search " << time_taken[1] << "ms for " << pat[j] << " After: " << RabinKarpCounter << "iterations" << endl;
+			my_file << text.size() << "," << BoyerMooreCounter << "," << time_taken[0] << "," << RabinKarpCounter << "," << time_taken[1] << endl;
+
+			cout << endl << endl;
+			//show_context(text, pos);
+			system("pause");
+		}
+
+	}
 	for (int i = 0; i < 5; i++)
 	{
-		//Position pos = find_bruteforce(pat, text);
-	//Position pos = find_skipping(pat, text);
-	//Position pos = find_bm(pat, text);
-	//cout << "Searching for:" << pat << endl;
-		cout << "String size" << text.size() << endl;
-		cout << "Boyer Moore" << endl;
-
-		//time how long it takes to Search via Boyer Moore
-		the_clock::time_point start = the_clock::now();
-		find_bm_multiple(pat[i], text);
-		the_clock::time_point end = the_clock::now();
-		time_taken[0] = duration_cast<milliseconds>(end - start).count();
-
-		//print the time taken
-		cout << "time taken to Search " << time_taken << "ms for " << pat[i] << " After: " << BoyerMooreCounter << "iterations"<< endl;
-		system("pause");
-
-		cout << "Rabin Karp" << endl;
-		// time how long it takes to Search via Rabin karp
-		start = the_clock::now();
-		Rabin_Karp(pat[i], text);
-		end = the_clock::now();
-		time_taken[1] = duration_cast<milliseconds>(end - start).count();
-		//print the time taken
-		cout << "time taken to Search " << time_taken[1] << "ms for " << pat[i] << " After: " << RabinKarpCounter << "iterations" << endl;
-		my_file << text.size() << "," << BoyerMooreCounter << "," << time_taken[0] << "," << RabinKarpCounter << "," << time_taken[1] << endl;
-
-		cout << endl << endl;
-		//show_context(text, pos);
-		system("pause");
+		
 
 	}
 	
