@@ -1,5 +1,6 @@
-Character limit ,number of iterations: ,Boyer Moore Time takennumber of iterations: ,Rabin Karp Time taken
-355622,355619,227,355620,336
-355622,355617,428,355618,537
-355622,355615,394,355616,478
-355622,355615,309,355616,370
+Character limit ,Boyer Moore Time taken,Rabin Karp Time taken
+355622,280,332
+355622,427,545
+355622,402,481
+355622,303,360
+355622,1270,1866
