@@ -24,8 +24,6 @@ typedef std::chrono::steady_clock the_clock;
 
 //my file to save values to
 ofstream my_file("Timings.csv");
-int BoyerMooreCounter = 0;
-int RabinKarpCounter = 0;
 #define d 256 //number of characters in the english alphabet
 
 /** Return first position of pat in text, or -1 if not found. */
@@ -134,7 +132,6 @@ void find_bm_multiple(const string& pat, const string& text)
 	Position pat_len = pat.size();
 	Position text_len = text.size();
 	vector<Position> Results;
-	BoyerMooreCounter = 0;
 	int NumberofMatches = 0;
 	int skip[256];
 	for (int i = 0; i < 256; ++i)
@@ -158,7 +155,6 @@ void find_bm_multiple(const string& pat, const string& text)
 				continue;
 			}
 		}
-		BoyerMooreCounter++;
 		Position j;
 		//show position we're currently at
 		//feed it the text we want,and the current position
@@ -189,7 +185,6 @@ void Rabin_Karp(const string& pat, const string& text)
 	int TextHash = 0;
 	int Hash = 1;
 	int NumberofMatches = 0;
-	RabinKarpCounter = 0;
 
 	for (int i = 0; i < PatternLength - 1; i++)	
 	{
@@ -204,7 +199,6 @@ void Rabin_Karp(const string& pat, const string& text)
 
 	for (int i = 0; i <= TextLength - PatternLength; i++)
 	{
-		RabinKarpCounter++;
 		if (PatternHash == TextHash)
 		{
 			for (j = 0; j < PatternLength; j++)
@@ -245,7 +239,7 @@ int main(int argc, char *argv[]) {
 	pat[4] = "Shido";
 
 	//set up headers
-	my_file << "Character limit " << "," << "number of iterations: " << ","<< "Boyer Moore Time taken" << "number of iterations: " << "," << "Rabin Karp Time taken" << endl;
+	my_file << "Character limit " << "," << "Boyer Moore Time taken"  << "," << "Rabin Karp Time taken" << endl;
 	for (int i = 0; i < 5; i++)
 	{	//load_jute_book(text); //call the load function and pass it the file .txt
 		FileName = "DateALiveVolume" + i + std::string(".txt");
@@ -266,7 +260,7 @@ int main(int argc, char *argv[]) {
 			time_taken[0] = duration_cast<milliseconds>(end - start).count();
 
 			//print the time taken
-			cout << "time taken to Search " << time_taken << "ms for " << pat[j] << " After: " << BoyerMooreCounter << "iterations" << endl;
+			cout << "time taken to Search " << time_taken << "ms for " << pat[j] <<  endl;
 			system("pause");
 
 			cout << "Rabin Karp" << endl;
@@ -276,8 +270,8 @@ int main(int argc, char *argv[]) {
 			end = the_clock::now();
 			time_taken[1] = duration_cast<milliseconds>(end - start).count();
 			//print the time taken
-			cout << "time taken to Search " << time_taken[1] << "ms for " << pat[j] << " After: " << RabinKarpCounter << "iterations" << endl;
-			my_file << text.size() << "," << BoyerMooreCounter << "," << time_taken[0] << "," << RabinKarpCounter << "," << time_taken[1] << endl;
+			cout << "time taken to Search " << time_taken[1] << "ms for " << pat[j] <<  endl;
+			my_file << text.size() << "," << time_taken[0] << "," << time_taken[1] << endl;
 
 			cout << endl << endl;
 			//show_context(text, pos);
