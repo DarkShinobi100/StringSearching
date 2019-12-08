@@ -126,7 +126,7 @@ Position find_bm(const string& pat, const string& text) {
 	return -1; // Not found.
 }
 
-/** skip ahead by the length of the string if we do not match. */
+/* skip ahead by the length of the string if we do not match.but keep looping through the whole file */
 void find_bm_multiple(const string& pat, const string& text) 
 {
 	Position pat_len = pat.size();
@@ -175,6 +175,7 @@ void find_bm_multiple(const string& pat, const string& text)
 	cout << pat << " was found: " << NumberofMatches << " time(s)" << endl;
 }
 
+/** read the patern and calculate a value for it, read the next cunk of the file we are searching and compare the two. slide along by 1 and calculate again */
 void Rabin_Karp(const string& pat, const string& text) 
 {
 	int PatternLength = pat.size();
@@ -231,17 +232,108 @@ int main(int argc, char *argv[]) {
 	float time_taken[2];
 	string FileName = "";
 
-	string pat[10]; //pat = pattern
+	string pat[100]; //pat = pattern we are looking for
 	pat[0] ="244";
-	pat[1] = "Tohka";
-	pat[2] = "Origami";
-	pat[3] = "Yoshino";
-	pat[4] = "Shido";
-	pat[5] = "Spirit";
-	pat[6] = "DEM";
-	pat[7] = "Angel";
-	pat[8] = "Battle";
-	pat[9] = "blade";
+	pat[1] = "244";
+	pat[2] = "244";
+	pat[3] = "244";
+	pat[4] = "244";
+	pat[5] = "244";
+	pat[6] = "244";
+	pat[7] = "244";
+	pat[8] = "244";
+	pat[9] = "244"; 
+	// repeated these 10 values to get a consistent average for each one
+	pat[10] = "Tohka";
+	pat[11] = "Tohka";
+	pat[12] = "Tohka";
+	pat[13] = "Tohka";
+	pat[14] = "Tohka";
+	pat[15] = "Tohka";
+	pat[16] = "Tohka";
+	pat[17] = "Tohka";
+	pat[18] = "Tohka";
+	pat[19] = "Tohka";
+	pat[20] = "Origami";
+	pat[21] = "Origami";
+	pat[22] = "Origami";
+	pat[23] = "Origami";
+	pat[24] = "Origami";
+	pat[25] = "Origami";
+	pat[26] = "Origami";
+	pat[27] = "Origami";
+	pat[28] = "Origami";
+	pat[29] = "Origami";
+	pat[30] = "Yoshino";
+	pat[31] = "Yoshino";
+	pat[32] = "Yoshino";
+	pat[33] = "Yoshino";
+	pat[34] = "Yoshino";
+	pat[35] = "Yoshino";
+	pat[36] = "Yoshino";
+	pat[37] = "Yoshino";
+	pat[38] = "Yoshino";
+	pat[39] = "Yoshino";
+	pat[40] = "Shido";
+	pat[41] = "Shido";
+	pat[42] = "Shido";
+	pat[43] = "Shido";
+	pat[44] = "Shido";
+	pat[45] = "Shido";
+	pat[46] = "Shido";
+	pat[47] = "Shido";
+	pat[48] = "Shido";
+	pat[49] = "Shido";
+	pat[50] = "Spirit";
+	pat[51] = "Spirit";
+	pat[52] = "Spirit";
+	pat[53] = "Spirit";
+	pat[54] = "Spirit";
+	pat[55] = "Spirit";
+	pat[56] = "Spirit";
+	pat[57] = "Spirit";
+	pat[58] = "Spirit";
+	pat[59] = "Spirit";
+	pat[60] = "DEM";
+	pat[61] = "DEM";
+	pat[62] = "DEM";
+	pat[63] = "DEM";
+	pat[64] = "DEM";
+	pat[65] = "DEM";
+	pat[66] = "DEM";
+	pat[67] = "DEM";
+	pat[68] = "DEM";
+	pat[69] = "DEM";
+	pat[70] = "Angel";
+	pat[71] = "Angel";
+	pat[72] = "Angel";
+	pat[73] = "Angel";
+	pat[74] = "Angel";
+	pat[75] = "Angel";
+	pat[76] = "Angel";
+	pat[77] = "Angel";
+	pat[78] = "Angel";
+	pat[79] = "Angel";
+	pat[80] = "Battle";
+	pat[81] = "Battle";
+	pat[82] = "Battle";
+	pat[83] = "Battle";
+	pat[84] = "Battle";
+	pat[85] = "Battle";
+	pat[86] = "Battle";
+	pat[87] = "Battle";
+	pat[88] = "Battle";
+	pat[89] = "Battle";
+	pat[90] = "Battle";
+	pat[91] = "blade";
+	pat[92] = "blade";
+	pat[93] = "blade";
+	pat[94] = "blade";
+	pat[95] = "blade";
+	pat[96] = "blade";
+	pat[97] = "blade";
+	pat[98] = "blade";
+	pat[99] = "blade";
 	
 	//set up headers
 	my_file << "Character limit " << "," << "Boyer Moore Time taken"  << "," << "Rabin Karp Time taken" << endl;
@@ -250,7 +342,7 @@ int main(int argc, char *argv[]) {
 		FileName ="DateALiveVolume" + std::to_string(i + 1) + ".txt";
 		load_file(FileName, text);
 		cout << "String size: " << text.size() << endl;
-		for (int j = 0; j <10; j++)
+		for (int j = 0; j <100; j++)
 		{
 			//Position pos = find_bruteforce(pat, text);
 			//Position pos = find_skipping(pat, text);
@@ -278,11 +370,12 @@ int main(int argc, char *argv[]) {
 			cout << "time taken to Search " << time_taken[1] << "ms" << endl<<endl;
 			my_file << text.size() << "," << time_taken[0] << "," << time_taken[1] << endl;
 
-			cout << endl << endl;
+		//	cout << endl << endl;
 			//show_context(text, pos);			
 		}
-		system("pause");
-
+		
+		cout << "book " << i << endl;
 	}	
+	system("pause");
 	return 0;
 }
